@@ -1,0 +1,25 @@
+{
+  "name": "mypyc_test_cases",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dosisod/tree-sitter-mypyc.git"
+  },
+  "author": "dosisod",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/dosisod/tree-sitter-mypyc/issues"
+  },
+  "homepage": "https://github.com/dosisod/tree-sitter-mypyc#readme",
+  "dependencies": {
+    "nan": "^2.17.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.7"
+  }
+}

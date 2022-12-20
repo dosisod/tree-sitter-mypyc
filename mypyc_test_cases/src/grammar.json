@@ -1,0 +1,216 @@
+{
+  "name": "mypyc_test_cases",
+  "word": "identifier",
+  "rules": {
+    "source_file": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "ALIAS",
+              "content": {
+                "type": "SYMBOL",
+                "name": "_opening_label"
+              },
+              "named": true,
+              "value": "label"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "label"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "comment"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "case_label": {
+      "type": "STRING",
+      "value": "case"
+    },
+    "file_label": {
+      "type": "STRING",
+      "value": "file"
+    },
+    "out_label": {
+      "type": "PATTERN",
+      "value": "out[0-9]?"
+    },
+    "rechecked_label": {
+      "type": "PATTERN",
+      "value": "rechecked[0-9]?"
+    },
+    "typing_label": {
+      "type": "STRING",
+      "value": "typing"
+    },
+    "delete_label": {
+      "type": "STRING",
+      "value": "delete"
+    },
+    "ir_label": {
+      "type": "STRING",
+      "value": "ir"
+    },
+    "label_name": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "case_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "file_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "out_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "rechecked_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "typing_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "delete_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ir_label"
+        }
+      ]
+    },
+    "_opening_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\\]]"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "lines",
+              "content": {
+                "type": "SYMBOL",
+                "name": "line"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\r?\\n\\["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label_name"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "PATTERN",
+            "value": "[^\\]]"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "FIELD",
+              "name": "lines",
+              "content": {
+                "type": "SYMBOL",
+                "name": "line"
+              }
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "line": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "PATTERN",
+          "value": "."
+        }
+      }
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[A-Za-z](\\.?[A-Za-z0-9_])*"
+    },
+    "comment": {
+      "type": "PATTERN",
+      "value": "--.*"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
