@@ -45,3 +45,7 @@
 (number) @number
 
 (comment) @comment
+
+["(" ")" "[" "]"] @punctuation.bracket
+
+[":" "::" ","] @punctuation.delimiter

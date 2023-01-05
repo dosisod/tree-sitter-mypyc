@@ -24,7 +24,8 @@ module.exports = grammar({
       field('name', $.identifier),
       '(',
       optional($.func_decl_args),
-      '):',
+      ')',
+      ':',
       repeat1($.stmt),
     ),
 
